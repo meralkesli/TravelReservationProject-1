@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Cambridge Consulting">
+
+<listeners>
+<listener class-name="com.qa.ExtentReportListener.ExtentReportListener"></listener>
+</listeners>
+	<test name="CambridgeConsultingTest">
+		<classes>
+		<!-- this is our runner class, we are writing all our test classes with package name, they will be run in given order -->
+		<!-- so the order we write below is important, you may change the order if you want your tests executed in different order -->	
+			<class name="com.cambridge.qa.testcases.AboutPageTest"></class>
+			<class name="com.cambridge.qa.testcases.SeleniumWithPythonPageTest"></class>
+			 <class name="com.cambridge.qa.testcases.ServicesTestPage"></class> 
+		</classes>
+</test>
+</suite> 

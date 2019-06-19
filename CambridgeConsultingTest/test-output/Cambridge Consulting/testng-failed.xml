@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Cambridge Consulting]">
+  <test thread-count="5" name="Cambridge Consulting Test(failed)">
+    <classes>
+      <class name="com.cambridge.qa.testcases.AboutPageTest">
+        <methods>
+          <include name="SetUp"/>
+          <include name="tearDown"/>
+          <include name="clickAboutUsTest"/>
+        </methods>
+      </class> <!-- com.cambridge.qa.testcases.AboutPageTest -->
+      <class name="com.cambridge.qa.testcases.SeleniumWithPythonPageTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="verifySeleniumPageTitleTest"/>
+        </methods>
+      </class> <!-- com.cambridge.qa.testcases.SeleniumWithPythonPageTest -->
+    </classes>
+  </test> <!-- Cambridge Consulting Test(failed) -->
+</suite> <!-- Failed suite [Cambridge Consulting] -->

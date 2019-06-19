@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Cambridge Consulting">
+	<test name="Cambridge Consulting Test">
+		<classes>
+		<!-- this is our runner class, we are writing all our test classes with package name, they will be run in given order -->
+		<!-- so the order we write below is important, you may change the order if you want your tests executed in different order -->	
+			<class name="com.cambridge.qa.testcases.AboutPageTest"></class>
+			<class name="com.cambridge.qa.testcases.SeleniumWithPythonPageTest"></class>
+			
+			<!-- if you want to exclude a test class, you can choose, them right click and source and add block comment -->
+			<!-- it will be commented out as below -->
+			<!-- <class name="com.cambridge.qa.testcases.ServicesTestPage"></class> -->
+		</classes>
+</test>
+</suite> 
+
+<!-- if you want, you can create another testng xml runner for sanity tests, so when your boss tell to execute sanity tests only, you can do it easily -->
