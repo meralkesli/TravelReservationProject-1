@@ -1,0 +1,245 @@
+from selenium import webdriver
+import time
+from Login.driver import info
+
+class Tc001():
+    def testing(self):
+        baseUrl = "https://www.phptravels.net/"
+        driver = webdriver.Firefox()
+        driver.maximize_window()
+        driver.get(baseUrl)
+        driver.implicitly_wait(5)
+
+        # Go to website "https://www.phptravels.net/" and Click "MY ACCOUNT" button and "LOGIN" button
+        myAccount = driver.find_element_by_xpath(
+            "//ul[@class='nav navbar-nav navbar-right hidden-sm go-left']//a[@class='dropdown-toggle go-text-right'][contains(text(),'My Account')]").click()
+        login = driver.find_element_by_xpath(
+            "//ul[@class='nav navbar-nav navbar-right hidden-sm go-left']//ul[@class='nav navbar-nav navbar-side navbar-right sidebar go-left user_menu']//li[@id='li_myaccount']//ul[@class='dropdown-menu']//li//a[@class='go-text-right'][contains(text(),'Login')]").click()
+        time.sleep(2)
+
+        #Enter valid email
+        username=driver.find_element_by_xpath("//input[@name='username']").send_keys("asd@hotmail.com")
+        time.sleep(2)
+
+        #Enter valid password
+        password=driver.find_element_by_xpath("//input[@name='password']").send_keys("ASdf1234")
+        time.sleep(2)
+
+        #click cooky Got It Button
+        cookybutton=driver.find_element_by_xpath("//button[@id='cookyGotItBtn']").click()
+        time.sleep(2)
+
+        #Click "LOGIN" button
+        loginbutton=driver.find_element_by_xpath("//button[@class='btn btn-action btn-lg btn-block loginbtn']").click()
+
+        expectedUrl="https://www.phptravels.net/account/"
+        actualUrl = driver.current_url
+        print(actualUrl)
+        if expectedUrl==actualUrl:
+            print("Test case Tc001 is passed")
+        else:
+            print("Fail")
+
+class Tc002():
+    def testing(self):
+        baseUrl = "https://www.phptravels.net/"
+        driver = webdriver.Firefox()
+        driver.maximize_window()
+        driver.get(baseUrl)
+        driver.implicitly_wait(5)
+
+        # Go to website "https://www.phptravels.net/" and Click "MY ACCOUNT" button and "LOGIN" button
+        myAccount = driver.find_element_by_xpath(
+            "//ul[@class='nav navbar-nav navbar-right hidden-sm go-left']//a[@class='dropdown-toggle go-text-right'][contains(text(),'My Account')]").click()
+        login = driver.find_element_by_xpath(
+            "//ul[@class='nav navbar-nav navbar-right hidden-sm go-left']//ul[@class='nav navbar-nav navbar-side navbar-right sidebar go-left user_menu']//li[@id='li_myaccount']//ul[@class='dropdown-menu']//li//a[@class='go-text-right'][contains(text(),'Login')]").click()
+        time.sleep(2)
+
+        # Enter valid email
+        username = driver.find_element_by_xpath("//input[@name='username']").send_keys("asd@hotmail.com")
+        time.sleep(2)
+
+        # Enter valid password
+        password = driver.find_element_by_xpath("//input[@name='password']").send_keys("ASdf1234")
+        time.sleep(2)
+
+        # click cooky Got It Button
+        cookybutton = driver.find_element_by_xpath("//button[@id='cookyGotItBtn']").click()
+        time.sleep(2)
+
+        #Click "remember me" button
+        remembermebutton=driver.find_element_by_xpath("//input[@id='remember-me']").click()
+        time.sleep(1)
+
+        # Click "LOGIN" button
+        loginbutton = driver.find_element_by_xpath("//button[@class='btn btn-action btn-lg btn-block loginbtn']").click()
+
+        expectedUrl = "https://www.phptravels.net/account/"
+        actualUrl = driver.current_url
+        if expectedUrl == actualUrl:
+            print("Test case Tc002 is passed")
+        else:
+            print("Fail")
+class Tc003():
+    def testing(self):
+        baseUrl = "https://www.phptravels.net/"
+        driver = webdriver.Firefox()
+        driver.maximize_window()
+        driver.get(baseUrl)
+        driver.implicitly_wait(5)
+
+        # Go to website "https://www.phptravels.net/" and Click "MY ACCOUNT" button and "LOGIN" button
+        myAccount = driver.find_element_by_xpath(
+            "//ul[@class='nav navbar-nav navbar-right hidden-sm go-left']//a[@class='dropdown-toggle go-text-right'][contains(text(),'My Account')]").click()
+        login = driver.find_element_by_xpath(
+            "//ul[@class='nav navbar-nav navbar-right hidden-sm go-left']//ul[@class='nav navbar-nav navbar-side navbar-right sidebar go-left user_menu']//li[@id='li_myaccount']//ul[@class='dropdown-menu']//li//a[@class='go-text-right'][contains(text(),'Login')]").click()
+        time.sleep(2)
+
+        # Enter valid email
+        username = driver.find_element_by_xpath("//input[@name='username']").send_keys("asd@hotmail.com")
+        time.sleep(2)
+
+        # Enter invalid password
+        password = driver.find_element_by_xpath("//input[@name='password']").send_keys("ASdf12345")
+        time.sleep(2)
+
+        # click cooky Got It Button
+        cookybutton = driver.find_element_by_xpath("//button[@id='cookyGotItBtn']").click()
+        time.sleep(2)
+
+        # Click "LOGIN" button
+        loginbutton = driver.find_element_by_xpath(
+            "//button[@class='btn btn-action btn-lg btn-block loginbtn']").click()
+
+        #Get error message "You have entered invalid password, please enter a valid password."
+        expectedmessage = "You have entered invalid password, please enter a valid password."
+        geterrormessage = driver.find_element_by_xpath(" //div[@class='alert alert-danger']")
+        if expectedmessage==geterrormessage:
+            print("You got true error message")
+        else:
+            print("In Tc003 test case, You got different error message: " + geterrormessage.text)
+
+class Tc004():
+    def testing(self):
+        baseUrl = "https://www.phptravels.net/"
+        driver = webdriver.Firefox()
+        driver.maximize_window()
+        driver.get(baseUrl)
+        driver.implicitly_wait(5)
+
+        # Go to website "https://www.phptravels.net/" and Click "MY ACCOUNT" button and "LOGIN" button
+        myAccount = driver.find_element_by_xpath(
+            "//ul[@class='nav navbar-nav navbar-right hidden-sm go-left']//a[@class='dropdown-toggle go-text-right'][contains(text(),'My Account')]").click()
+        login = driver.find_element_by_xpath(
+            "//ul[@class='nav navbar-nav navbar-right hidden-sm go-left']//ul[@class='nav navbar-nav navbar-side navbar-right sidebar go-left user_menu']//li[@id='li_myaccount']//ul[@class='dropdown-menu']//li//a[@class='go-text-right'][contains(text(),'Login')]").click()
+        time.sleep(2)
+
+        # Enter invalid email
+        username = driver.find_element_by_xpath("//input[@name='username']").send_keys("asdf@hotmail.com")
+        time.sleep(2)
+
+        # Enter valid password
+        password = driver.find_element_by_xpath("//input[@name='password']").send_keys("ASdf1234")
+        time.sleep(2)
+
+        # click cooky Got It Button
+        cookybutton = driver.find_element_by_xpath("//button[@id='cookyGotItBtn']").click()
+        time.sleep(2)
+
+        # Click "LOGIN" button
+        loginbutton = driver.find_element_by_xpath(
+            "//button[@class='btn btn-action btn-lg btn-block loginbtn']").click()
+
+        # Get error message "You have entered invalid password, please enter a valid password."
+        expectedmessage = "You have entered invalid username, please enter a valid username."
+        geterrormessage = driver.find_element_by_xpath(" //div[@class='alert alert-danger']")
+        if expectedmessage == geterrormessage:
+            print("You got true error message")
+        elif expectedmessage!=geterrormessage:
+            print("In Tc004 test case, You got different error message: " + geterrormessage.text)
+        else:
+            print("Fail")
+
+class Tc005():
+    def testing(self):
+        baseUrl = "https://www.phptravels.net/"
+        driver = webdriver.Firefox()
+        driver.maximize_window()
+        driver.get(baseUrl)
+        driver.implicitly_wait(5)
+
+        # Go to website "https://www.phptravels.net/" and Click "MY ACCOUNT" button and "LOGIN" button
+        myAccount = driver.find_element_by_xpath(
+            "//ul[@class='nav navbar-nav navbar-right hidden-sm go-left']//a[@class='dropdown-toggle go-text-right'][contains(text(),'My Account')]").click()
+        login = driver.find_element_by_xpath(
+            "//ul[@class='nav navbar-nav navbar-right hidden-sm go-left']//ul[@class='nav navbar-nav navbar-side navbar-right sidebar go-left user_menu']//li[@id='li_myaccount']//ul[@class='dropdown-menu']//li//a[@class='go-text-right'][contains(text(),'Login')]").click()
+        time.sleep(2)
+
+        # Enter invalid email
+        username = driver.find_element_by_xpath("//input[@name='username']").send_keys("asdf@hotmail.com")
+        time.sleep(2)
+
+        # Enter invalid password
+        password = driver.find_element_by_xpath("//input[@name='password']").send_keys("ASdf12345")
+        time.sleep(2)
+
+        # click cooky Got It Button
+        cookybutton = driver.find_element_by_xpath("//button[@id='cookyGotItBtn']").click()
+        time.sleep(2)
+
+        # Click "LOGIN" button
+        loginbutton = driver.find_element_by_xpath(
+            "//button[@class='btn btn-action btn-lg btn-block loginbtn']").click()
+
+        # Get error message "You have entered invalid username and invalid password, please enter a valid username and password."
+        expectedmessage = "You have entered invalid username and invalid password, please enter a valid username and password."
+        geterrormessage = driver.find_element_by_xpath(" //div[@class='alert alert-danger']").text
+        if expectedmessage == geterrormessage:
+            print("You got true error message")
+        elif expectedmessage != geterrormessage:
+            print("In Tc005 test case, You got different error message: " + geterrormessage)
+        else:
+            print("Fail")
+
+class Tc008():
+    def testing(self):
+        baseUrl = "https://www.phptravels.net/"
+        driver = webdriver.Firefox()
+        driver.maximize_window()
+        driver.get(baseUrl)
+        driver.implicitly_wait(5)
+
+        # Go to website "https://www.phptravels.net/" and Click "MY ACCOUNT" button and "LOGIN" button
+        myAccount = driver.find_element_by_xpath(
+            "//ul[@class='nav navbar-nav navbar-right hidden-sm go-left']//a[@class='dropdown-toggle go-text-right'][contains(text(),'My Account')]").click()
+        login = driver.find_element_by_xpath(
+            "//ul[@class='nav navbar-nav navbar-right hidden-sm go-left']//ul[@class='nav navbar-nav navbar-side navbar-right sidebar go-left user_menu']//li[@id='li_myaccount']//ul[@class='dropdown-menu']//li//a[@class='go-text-right'][contains(text(),'Login')]").click()
+        time.sleep(2)
+
+        # Enter valid email
+        username = driver.find_element_by_xpath("//input[@name='username']").send_keys("asd@hotmail.com")
+        time.sleep(2)
+
+        # click cooky Got It Button
+        cookybutton = driver.find_element_by_xpath("//button[@id='cookyGotItBtn']").click()
+        time.sleep(2)
+
+        # Click "LOGIN" button
+        loginbutton = driver.find_element_by_xpath(
+            "//button[@class='btn btn-action btn-lg btn-block loginbtn']").click()
+
+
+ff=Tc001()
+ff.testing()
+# ff=Tc002()
+# ff.testing()
+# ff=Tc003()
+# ff.testing()
+# ff=Tc004()
+# ff.testing()
+# ff=Tc005()
+# ff.testing()
+
+
+
+
